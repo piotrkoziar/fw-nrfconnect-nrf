@@ -3,11 +3,7 @@
 set -e
 
 out_dir=openthread_mbedtls_out
-openthread_dir=/home/kasr/repos/openthread
-
-west build -b nrf52840_pca10056 . || echo ''
-
-./extract_libs.sh
+openthread_dir=$1
 
 rm -rvf $openthread_dir/third_party/NordicSemiconductor/libraries/nrf_security/config
 rm -rvf $openthread_dir/third_party/NordicSemiconductor/libraries/nrf_security/include/mbedtls
