@@ -6,7 +6,7 @@ out_dir=openthread_mbedtls_out
 nrfxlib_dir=../../../nrfxlib
 mbedtls_dir=../../../mbedtls
 nrf_security_build_dir=build/modules/nrfxlib/nrf_security
-nrf_security_version=0.9.1
+nrf_security_version=0.9.2
 
 lib_dir=$out_dir/lib
 config_dir=$out_dir/config
