@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -ex
+# set -ex
 
 out_dir=openthread_mbedtls_out
 nrfxlib_dir=../../../nrfxlib
@@ -50,7 +50,6 @@ copy_libs()
 
 rm -rf build
 west build -b nrf52840_pca10056 .
-# cat ./build/zephyr/.config | grep WCHAR
 
 # Insert glue layer config to nrf-config.h, replace #undef with #define and store it in $config_dir
 grep -oE '^CONFIG_(GLUE|CC310|VANILLA)\w*MBEDTLS\w*_C' build/zephyr/.config |
@@ -80,7 +79,6 @@ done
 
 rm -rf build
 west build -b nrf52840_pca10056 . -- -DOVERLAY_CONFIG="overlay-short-wchar.conf"
-# cat ./build/zephyr/.config | grep WCHAR
 
 copy_libs $nrf_security_version 1
 
