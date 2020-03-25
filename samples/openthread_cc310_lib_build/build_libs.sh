@@ -69,7 +69,7 @@ cp -va $nrf_security_build_dir/include/mbedtls_generated/* $include_dir/mbedtls
 
 copy_libs $nrf_security_version
 
-for lib in $(find $lib_dir -name *.a);
+for lib in $(find $lib_dir -name *.a -not -name *_short_wchar.a);
 do
   if readelf -aW $lib | c++filt | grep -e "wchar_t: [^4]"; then
     echo "Found lib ($lib) with sizeof(wchar_t) != 4"
