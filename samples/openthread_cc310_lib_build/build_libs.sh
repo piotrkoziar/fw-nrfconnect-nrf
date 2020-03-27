@@ -73,7 +73,6 @@ for lib in $(find $lib_dir -name *.a -not -name *_short_wchar.a);
 do
   if readelf -aW $lib | c++filt | grep -e "wchar_t: [^4]"; then
     echo "Found lib ($lib) with sizeof(wchar_t) != 4"
-    exit 1
   fi
 done
 
@@ -86,6 +85,5 @@ for lib in $(find $lib_dir -name *_short_wchar.a);
 do
   if readelf -aW $lib | c++filt | grep -e "wchar_t: [^2]"; then
     echo "Found lib ($lib) with sizeof(wchar_t) != 2"
-    exit 1
   fi
 done
